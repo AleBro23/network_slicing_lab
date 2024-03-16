@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+import sys
+sys.path.append('/home/vagrant/comnetsemu/patch/mininet')
+
+
 from mininet.topo import Topo
 from mininet.node import RemoteController, OVSKernelSwitch
 from mininet.net import Mininet
@@ -17,7 +21,7 @@ class MyTopology(Topo): #init topolgy
         #dict per collegare host e switch
         host_link_config = dict()
         #dict per collegare switch e switch
-        switch_link_config = dict()
+        switch_link_config = {}
         
         #add switch
         for i in range (4):
@@ -35,7 +39,7 @@ class MyTopology(Topo): #init topolgy
         self.addHost('h31', **host_config_slice3)
     
         #add link between host and switches
-        self.addLink('h11', 's1', **host_link_config)
+        self.addLink('h11', 's1', **host_link_config) #add port ?
         self.addLink('h12', 's1', **host_link_config)
         self.addLink('h13', 's2', **host_link_config)
         self.addLink('h14', 's2', **host_link_config)
@@ -44,9 +48,26 @@ class MyTopology(Topo): #init topolgy
         self.addLink('h31', 's4', **host_link_config)
 
         #add link between switch and switch
-        self.addLink('s1', 's2', switch_link_config)
-        self.addLink('s1', 's3', switch_link_config)
-        self.addLink('s1', 's4', switch_link_config)
-        self.addLink('s2', 's3', switch_link_config)
-        self.addLink('s2', 's4', switch_link_config)
+        self.addLink('s1', 's2', **switch_link_config)
+        self.addLink('s1', 's3', **switch_link_config)
+        self.addLink('s1', 's4', **switch_link_config)
+        self.addLink('s2', 's3', **switch_link_config)
+        self.addLink('s2', 's4', ** switch_link_config)
 
+if __name__ == "__main__":
+    topo = MyTopology()
+    net = Mininet(
+        topo=topo,
+        switch=OVSKernelSwitch,
+        build=False,
+        autoSetMacs=True,
+        autoStaticArp=True,
+        link=TCLink,
+    )
+
+    controller = RemoteController("c1", ip="127.0.0.1", port=6633)
+    net.addController(controller)
+    net.build()
+    net.start()
+    CLI(net)
+    net.stop()
