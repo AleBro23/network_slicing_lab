@@ -32,3 +32,26 @@ Immaginando uno scenario realistico, questa rete SDN è configurata per gestire 
 | Fascia 3 | Laboratorio di Innovazione e Ricerca   | h5, h6     | 120            | No                  | Accesso a risorse cloud e calcolo distribuito   |
 | Fascia 4 | Centro di Supporto IT                  | h7, h8     | 50             | No                  | Monitoraggio della rete e supporto continuo     |
 
+
+## Installation:
+
+### Requirements
+- Mininet
+- Ryu SDN Controller
+- Open vSwitch (OVS)
+- iperf (for testing network performance)
+
+### Step-by-Step Installation
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Erikascaltrito/On_Demand_Slicing.git
+   cd On_Demand_Slicing
+   
+2.	**Install Mininet** Follow the official Mininet installation guide.
+3.	**Install Ryu SDN Controller** Install Ryu following the official documentation.
+4.	**Setup the Network Topology** Ensure all dependencies are installed, then use the provided Python script to set up the topology.
+```bash
+   sudo python3 your_topology_script.py
+
+
