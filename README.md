@@ -45,13 +45,13 @@ Immaginando uno scenario realistico, questa rete SDN è configurata per gestire 
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/Erikascaltrito/On_Demand_Slicing.git
+   git clone https://github.com/AleBRO/On_Demand_Slicing.git
    cd On_Demand_Slicing
    
 2.	**Install Mininet** Follow the official Mininet installation guide.
 3.	**Install Ryu SDN Controller** Install Ryu following the official documentation.
 4.	**Setup the Network Topology** Ensure all dependencies are installed, then use the provided Python script to set up the topology.
-```bash
-   sudo python3 your_topology_script.py
+    ```bash
+     sudo python3 your_topology_script.py
 
 
