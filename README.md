@@ -1,82 +1,23 @@
-# network_slicing_lab
+# SDN SLICING SU RICHIESTA IN ComNetsEmu
 project network slicing using an sdn
 
-Slice 1: Rete Aziendale Interna (Intranet)
-Questa slice è dedicata alla comunicazione interna aziendale, con alta priorità e larghezza di banda riservata.
+## Panoramica:
+Il progetto "SDN Slices su Richiesta" è un'implementazione di network slicing utilizzando il controller SDN RYU. Consente l'attivazione e la disattivazione dinamica delle fasce di rete basate sui comandi dell'utente tramite CLI.
 
-Topologia:
+## Topologia del Progetto:
+La topologia è composta da:
+- Switch Core (s1)
+- 4 Switch di Distribuzione (s2, s3, s4, s5)
+- 8 Host collegati in coppia a ciascun switch di distribuzione.
+Ogni switch di distribuzione e i suoi host connessi formano una fascia di rete distinta, progettata per scopi specifici.
 
-Flusso 1: h1 -> s1 -> s4 -> s2 -> h3
-Flusso 2: h2 -> s1 -> s4 -> s2 -> h4
-Configurazione:
-
-Larghezza di Banda: 50% riservato su tutti i collegamenti.
-QoS: Alta priorità per bassa latenza e alta affidabilità.
-
-slice_intranet:
-  topology:
-    - link: [h1, s1, 50]
-    - link: [s1, s4, 50]
-    - link: [s4, s2, 50]
-    - link: [s2, h3, 50]
-    - link: [h2, s1, 50]
-    - link: [s1, s4, 50]
-    - link: [s4, s2, 50]
-    - link: [s2, h4, 50]
-  flows:
-    - flow1: {src: h1, dst: h3, bandwidth: 20}
-    - flow2: {src: h2, dst: h4, bandwidth: 20}
-
-
-Slice 2: Rete DMZ (Zona Demilitarizzata)
-Questa slice gestisce il traffico tra la rete interna e i server esterni, garantendo sicurezza e isolamento.
-
-Topologia:
-
-Flusso 1: h3 -> s2 -> s4 -> s3 -> h5
-Flusso 2: h4 -> s2 -> s4 -> s3 -> h6
-Configurazione:
-
-Larghezza di Banda: 30% riservato su tutti i collegamenti.
-QoS: Priorità media, con sicurezza e isolamento come obiettivi principali.
-
-slice_dmz:
-  topology:
-    - link: [h3, s2, 30]
-    - link: [s2, s4, 30]
-    - link: [s4, s3, 30]
-    - link: [s3, h5, 30]
-    - link: [h4, s2, 30]
-    - link: [s2, s4, 30]
-    - link: [s4, s3, 30]
-    - link: [s3, h6, 30]
-  flows:
-    - flow1: {src: h3, dst: h5, bandwidth: 15}
-    - flow2: {src: h4, dst: h6, bandwidth: 15}
-
-
-Slice 3: Rete Pubblica (Accesso Esterno)
-Questa slice è destinata al traffico esterno che passa attraverso la rete aziendale, con enfasi sulla capacità e l'accessibilità.
-
-Topologia:
-
-Flusso 1: h5 -> s3 -> s4 -> s1 -> h7
-Flusso 2: h6 -> s3 -> s4 -> s1 -> h8
-Configurazione:
-
-Larghezza di Banda: 20% riservato su tutti i collegamenti.
-QoS: Priorità bassa, con enfasi sulla capacità e l'accesso esterno.
-
-slice_public:
-  topology:
-    - link: [h5, s3, 20]
-    - link: [s3, s4, 20]
-    - link: [s4, s1, 20]
-    - link: [s1, h7, 20]
-    - link: [h6, s3, 20]
-    - link: [s3, s4, 20]
-    - link: [s4, s1, 20]
-    - link: [s1, h8, 20]
-  flows:
-    - flow1: {src: h5, dst: h7, bandwidth: 10}
-    - flow2: {src: h6, dst: h8, bandwidth: 10}
+## Fasce di Rete e Casi d'Uso:
+Immaginando uno scenario realistico, questa rete SDN è configurata per gestire le risorse di una struttura moderna. Le quattro fasce create supportano vari dipartimenti, ognuno con esigenze specifiche.
+- **Fascia 1: Laboratorio di Simulazioni Mediche (h1, h2)**
+  Questa fascia è utilizzata per simulazioni mediche avanzate, richiedendo una larghezza di banda elevata di 150 Mbps per gestire flussi video in tempo reale e dati sensoriali critici. La latenza deve essere molto bassa per garantire la precisione delle simulazioni.
+- **Fascia 2: Sala Conferenze Aziendale (h3, h4)**
+  Ottimizzata per videoconferenze e presentazioni dal vivo, questa fascia supporta uno streaming stabile con un bitrate di 100 Mbps. La latenza è moderata per consentire interazioni fluide durante gli incontri.
+- **Fascia 3: Laboratorio di Innovazione e Ricerca (h5, h6)**
+  Questo laboratorio richiede una connessione affidabile di 120 Mbps per l'accesso a risorse cloud e server di calcolo distribuiti, fondamentali per lo sviluppo di nuovi progetti e prototipi tecnologici.
+- **Fascia 4: Centro di Supporto IT (h7, h8)**
+  Utilizzato per il monitoraggio della rete e la risoluzione di problemi tecnici, questa fascia ha un bitrate di 50 Mbps. La priorità è la stabilità della connessione piuttosto che la velocità, garantendo un supporto continuo e sicuro per l'intera infrastruttura.
