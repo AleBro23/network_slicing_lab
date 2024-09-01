@@ -59,13 +59,18 @@ Immaginando uno scenario realistico, questa rete SDN è configurata per gestire 
 ## Running the project:
 
 1. Start the Ryu Controller Start the Ryu controller on your local machine:
+
    ```bash
      ryu-manager ryu.app.simple_switch_13
-2. Launch the Topology Run the topology script to create the network:
-    ```bash
+   
+3. Launch the Topology Run the topology script to create the network:
+
+   ```bash
      sudo python3 topologyscript.py
-3.	Testing the Slices You can test each slice using iperf to ensure the correct bitrate and latency are applied.
-4.	Manage the Slices via CLI or GUI Use Mininet's CLI to manually control and monitor the slices. Alternatively, a custom GUI (if developed) can be used to visualize and manage the network.
+   
+5.	Testing the Slices You can test each slice using iperf to ensure the correct bitrate and latency are applied.
+
+6.	Manage the Slices via CLI or GUI Use Mininet's CLI to manually control and monitor the slices. Alternatively, a custom GUI (if developed) can be used to visualize and manage the network.
 
 ## Contributors:
 This project was developed by:
