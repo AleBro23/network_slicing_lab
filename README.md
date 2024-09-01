@@ -25,7 +25,7 @@ Immaginando uno scenario realistico, questa rete SDN è configurata per gestire 
 - **Fascia 4: Centro di Supporto IT (h7, h8)**
   Utilizzato per il monitoraggio della rete e la risoluzione di problemi tecnici, questa fascia ha un bitrate di 50 Mbps. La priorità è la stabilità della connessione piuttosto che la velocità, garantendo un supporto continuo e sicuro per l'intera infrastruttura.
 
-  | Fascia   | Funzione                              | Host       | Bitrate (Mbps) | Latenza Prioritaria | Note                                           |
+| Fascia   | Funzione                              | Host       | Bitrate (Mbps) | Latenza Prioritaria | Note                                           |
 |----------|---------------------------------------|------------|----------------|---------------------|------------------------------------------------|
 | Fascia 1 | Laboratorio di Simulazioni Mediche     | h1, h2     | 150            | Sì                  | Simulazioni in tempo reale, alta precisione     |
 | Fascia 2 | Sala Conferenze Aziendale              | h3, h4     | 100            | Moderata            | Streaming stabile per videoconferenze           |
