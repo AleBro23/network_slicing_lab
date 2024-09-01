@@ -44,14 +44,35 @@ Immaginando uno scenario realistico, questa rete SDN è configurata per gestire 
 ### Step-by-Step Installation
 
 1. **Clone the Repository**
+
    ```bash
    git clone https://github.com/AleBRO/On_Demand_Slicing.git
    cd On_Demand_Slicing
    
-2.	**Install Mininet** Follow the official Mininet installation guide.
-3.	**Install Ryu SDN Controller** Install Ryu following the official documentation.
-4.	**Setup the Network Topology** Ensure all dependencies are installed, then use the provided Python script to set up the topology.
-    ```bash
+3.	**Install Mininet** Follow the official Mininet installation guide.
+4.	**Install Ryu SDN Controller** Install Ryu following the official documentation.
+5.	**Setup the Network Topology** Ensure all dependencies are installed, then use the provided Python script to set up the topology.
+
+  	```bash
      sudo python3 your_topology_script.py
+
+## Running the project:
+
+1. Start the Ryu Controller Start the Ryu controller on your local machine:
+   ```bash
+     ryu-manager ryu.app.simple_switch_13
+2. Launch the Topology Run the topology script to create the network:
+    ```bash
+     sudo python3 topologyscript.py
+3.	Testing the Slices You can test each slice using iperf to ensure the correct bitrate and latency are applied.
+4.	Manage the Slices via CLI or GUI Use Mininet's CLI to manually control and monitor the slices. Alternatively, a custom GUI (if developed) can be used to visualize and manage the network.
+
+## Contributors:
+This project was developed by:
+ - Alessandro Brognara, [221952], alessandro.brognara@studenti.untin.it
+ - Konstantinos Zefkilis, [226600], k.zefkilis@studenti.unitn.it
+ - Luca Pio Pierno, [228904], lucapio.pierno@studenti.unitn.it
+
+
 
 
