@@ -11,7 +11,9 @@ La topologia è composta da:
 Ogni switch di distribuzione e i suoi host connessi formano una fascia di rete distinta, progettata per scopi specifici.
 
 ## Fasce di Rete e Casi d'Uso:
-Immaginando uno scenario realistico, questa rete SDN è configurata per gestire le risorse di una struttura moderna. Le quattro fasce create supportano vari dipartimenti, ognuno con esigenze specifiche.
+Immaginando uno scenario realistico, questa rete SDN è configurata per gestire le risorse di un ambiente universitario di ricerca. Le quattro fasce create supportano vari dipartimenti, ognuno con esigenze specifiche.
+![image](https://github.com/user-attachments/assets/efc32b42-2bc4-465a-94da-bdfb72606a95)
+
 - **Fascia 1: Laboratorio di Simulazioni Mediche (h1, h2)**
   Questa fascia è utilizzata per simulazioni mediche avanzate, richiedendo una larghezza di banda elevata di 150 Mbps per gestire flussi video in tempo reale e dati sensoriali critici. La latenza deve essere molto bassa per garantire la precisione delle simulazioni.
 
