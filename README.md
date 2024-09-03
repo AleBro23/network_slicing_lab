@@ -1,5 +1,4 @@
 # SDN SLICING SU RICHIESTA IN ComNetsEmu
-project network slicing using an sdn
 
 ## Panoramica:
 Il progetto "SDN Slices su Richiesta" è un'implementazione di network slicing utilizzando il controller SDN RYU. Consente l'attivazione e la disattivazione dinamica delle fasce di rete basate sui comandi dell'utente tramite CLI.
@@ -46,8 +45,8 @@ Immaginando uno scenario realistico, questa rete SDN è configurata per gestire 
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/AleBRO/On_Demand_Slicing.git
-   cd On_Demand_Slicing
+   git clone https://github.com/AleBro23/Project-Network-Slicing-
+   cd network_slicing_lab
    
 3.	**Install Mininet** Follow the official Mininet installation guide.
 4.	**Install Ryu SDN Controller** Install Ryu following the official documentation.
@@ -61,16 +60,21 @@ Immaginando uno scenario realistico, questa rete SDN è configurata per gestire 
 1. Start the Ryu Controller Start the Ryu controller on your local machine:
 
    ```bash
-     ryu-manager ryu.app.simple_switch_13
+     ryu-manager controller.py
    
 3. Launch the Topology Run the topology script to create the network:
 
    ```bash
-     sudo python3 topologyscript.py
-   
-5.	Testing the Slices You can test each slice using iperf to ensure the correct bitrate and latency are applied.
+     sudo python3 topology.py
 
-6.	Manage the Slices via CLI or GUI Use Mininet's CLI to manually control and monitor the slices. Alternatively, a custom GUI (if developed) can be used to visualize and manage the network.
+4. Launch the script for slice activation and deactiovation
+   ```bash
+     ./gestione_slice.sh
+
+5. You can now activate or deactivate a single slice using the CLI
+   
+6.	Testing the Slices You can test each slice using iperf to ensure the correct bitrate and latency are applied.
+
 
 ## Contributors:
 This project was developed by:
