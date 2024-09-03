@@ -23,14 +23,14 @@ class TrafficSlicing(app_manager.RyuApp):
         self.mac_to_port = {
             # Core Switch s1
             1: {
-                "00:00:00:00:01:01": 2,  # h1 is reachable via s2 (port 2)
-                "00:00:00:00:01:02": 2,  # h2 is reachable via s2 (port 2)
-                "00:00:00:00:02:01": 3,  # h3 is reachable via s3 (port 3)
-                "00:00:00:00:02:02": 3,  # h4 is reachable via s3 (port 3)
-                "00:00:00:00:03:01": 4,  # h5 is reachable via s4 (port 4)
-                "00:00:00:00:03:02": 4,  # h6 is reachable via s4 (port 4)
-                "00:00:00:00:04:01": 5,  # h7 is reachable via s5 (port 5)
-                "00:00:00:00:04:02": 5   # h8 is reachable via s5 (port 5)
+                "00:00:00:00:01:01": 1,  # h1 is reachable via s2 (port 1)
+                "00:00:00:00:01:02": 1,  # h2 is reachable via s2 (port 1)
+                "00:00:00:00:02:01": 2,  # h3 is reachable via s3 (port 2)
+                "00:00:00:00:02:02": 2,  # h4 is reachable via s3 (port 2)
+                "00:00:00:00:03:01": 3,  # h5 is reachable via s4 (port 3)
+                "00:00:00:00:03:02": 3,  # h6 is reachable via s4 (port 3)
+                "00:00:00:00:04:01": 4,  # h7 is reachable via s5 (port 4)
+                "00:00:00:00:04:02": 4   # h8 is reachable via s5 (port 4)
             },
             # Distribution Switch s2
             2: {
@@ -113,7 +113,7 @@ class TrafficSlicing(app_manager.RyuApp):
                 actions = [datapath.ofproto_parser.OFPActionOutput(out_port)]
                 self._send_package(msg, datapath, in_port, actions)
 
-    # Instrada un pacchetto dallo switch alla destinazione
+    # Descrive come inviare il pacchetto
     def _send_package(self, msg, datapath, in_port, actions):
         data = None
         ofproto = datapath.ofproto

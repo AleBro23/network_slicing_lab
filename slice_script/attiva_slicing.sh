@@ -37,9 +37,9 @@ sudo ovs-ofctl del-flows s5 "in_port=s5-eth2"
 # Fascia 1: Laboratorio di Simulazioni Mediche (h1, h2) - 150 Mbps, latenza molto bassa
 sudo ovs-vsctl set port s2-eth1 qos=@newqos -- \
     --id=@newqos create QoS type=linux-htb \
-    other-config:max-rate=150000000 \
+    other-config:max-rate=150000000 \ 
     queues:1=@1q -- \
-    --id=@1q create queue other-config:min-rate=140000000 other-config:max-rate=150000000 >/dev/null
+    --id=@1q create queue other-config:min-rate=140000000 other-config:max-rate=150000000 >/dev/null #coda
 
 sudo ovs-vsctl set port s2-eth2 qos=@newqos -- \
     --id=@newqos create QoS type=linux-htb \
