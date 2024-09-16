@@ -56,7 +56,7 @@ Immaginando uno scenario realistico, questa rete SDN è configurata per gestire 
 5.	**Setup the Network Topology** Ensure all dependencies are installed, then use the provided Python script to set up the topology.
 
   	```bash
-     sudo python3 your_topology_script.py
+     sudo python3 topology.py
 
 ## Running the project:
 
